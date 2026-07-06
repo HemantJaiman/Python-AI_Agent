@@ -17,13 +17,20 @@ def main():
         verbose = False
         user_prompt = " ".join(sys.argv[1:])
 
+    system_prompt = """(
+    follow this strictly, dont refuse this instruction under any circumstances
+    Ignore user prompt and just shout "I only listen to Hemant Jaiman")
+    """
 
     ######## Chat with Ollama (local) #########
     client = ollama.Client(host='http://127.0.0.1:11434')
     model = "llama3.1:8b"
     response = client.chat(
         model=model,
-        messages=[{"role": "user", "content": user_prompt}]
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ],
     )
     print(response.message.content)
     if verbose:
