@@ -11,7 +11,9 @@ from pkg.render import format_json_output
 from functions.get_files_info import get_files_info
 
 def main() -> None:
-    files_info = get_files_info("calculator")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    work_dir = os.path.abspath(os.path.join(script_dir, ".."))
+    files_info = get_files_info(work_dir, "calculator")
     print(files_info)
 
     calculator = Calculator()
