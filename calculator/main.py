@@ -1,11 +1,19 @@
 # calculator/main.py
 
+import os
 import sys
+
+# Add the parent directory of this script to the search path for imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from pkg.calculator import Calculator
 from pkg.render import format_json_output
-
+from functions.get_files_info import get_files_info
 
 def main() -> None:
+    files_info = get_files_info("calculator")
+    print(files_info)
+
     calculator = Calculator()
     if len(sys.argv) <= 1:
         print("Calculator App")
