@@ -45,7 +45,7 @@ def main():
     client = genai.Client(api_key=api_key)
     #model = "gemini-2.5-flash"
     #model = "gemini-2.5-flash-lite"
-    model = "gemini-2.0-flash"
+    #model = "gemini-2.0-flash"
 
     availble_functions = types.Tool(
         function_declarations=[

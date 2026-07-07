@@ -87,6 +87,8 @@ def main():
     3. write_file: Writes content to a file (creates/updates).
     4. run_python_file: Runs a python file with optional arguments.
 
+    when user asking about any code related stuff then you should always refer to working directory's files and structure. you should not assume anything beyond the working directory.
+
     CRITICAL RULES:
     - You do not know what files are in the working directory at the beginning of the conversation. Therefore, you MUST start by calling get_files_info to find out what files and directories exist.
     - DO NOT guess file paths. Only access or run files that you have seen in the output of get_files_info.
